@@ -1,7 +1,6 @@
 package sample.util;
 
 import com.sun.rowset.CachedRowSetImpl;
-
 import java.sql.*;
 
 public class DbHelper {

@@ -10,18 +10,18 @@ public class Client {
     private StringProperty surname;
     private StringProperty email;
     private IntegerProperty id;
-    private IntegerProperty telephoneNumber;
+    private StringProperty telephoneNumber;
 
     Client() {
-        this(null, null, null, 0, 0);
+        this(0, null, null, null, null);
     }
 
-    Client(String name, String surname, String email, int id, int telephoneNumber) {
+    Client(int id, String name, String surname, String email, String telephoneNumber) {
+        this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.surname = new SimpleStringProperty(surname);
         this.email = new SimpleStringProperty(email);
-        this.id = new SimpleIntegerProperty(id);
-        this.telephoneNumber = new SimpleIntegerProperty(telephoneNumber);
+        this.telephoneNumber = new SimpleStringProperty(telephoneNumber);
     }
 
     public String getName() {
@@ -72,15 +72,15 @@ public class Client {
         this.id.set(id);
     }
 
-    public int getTelephoneNumber() {
+    public String getTelephoneNumber() {
         return telephoneNumber.get();
     }
 
-    public IntegerProperty telephoneNumberProperty() {
+    public StringProperty telephoneNumberProperty() {
         return telephoneNumber;
     }
 
-    public void setTelephoneNumber(int telephoneNumber) {
+    public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber.set(telephoneNumber);
     }
 }
