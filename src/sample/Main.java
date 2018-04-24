@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.model.ClientDAO;
+import sample.model.ReservationDAO;
 
 public class Main extends Application {
 
@@ -16,7 +17,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
-        ClientDAO.getClients();
     }
 
 

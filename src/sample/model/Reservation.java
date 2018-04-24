@@ -7,17 +7,19 @@ import java.util.Date;
 public class Reservation {
     private IntegerProperty reservationId;
     private IntegerProperty customerId;
+    private IntegerProperty roomNumber;
     private BooleanProperty breakfast;
     private ObjectProperty<Date> dateIn;
     private ObjectProperty<Date> dateOut;
 
     Reservation() {
-        this(0, 0, false, null, null);
+        this(0, 0, 0, false, null, null);
     }
 
-    Reservation(int reservationId, int customerId, boolean breakfast, Date dateIn, Date dateOut) {
+    Reservation(int reservationId, int customerId, int roomNumber, boolean breakfast, Date dateIn, Date dateOut) {
         this.reservationId = new SimpleIntegerProperty(reservationId);
         this.customerId = new SimpleIntegerProperty(customerId);
+        this.roomNumber = new SimpleIntegerProperty(roomNumber);
         this.breakfast = new SimpleBooleanProperty(breakfast);
         this.dateIn = new SimpleObjectProperty<>(dateIn);
         this.dateOut = new SimpleObjectProperty<>(dateOut);
@@ -81,5 +83,17 @@ public class Reservation {
 
     public void setDateOut(Date dateOut) {
         this.dateOut.set(dateOut);
+    }
+
+    public int getRoomNumber() {
+        return roomNumber.get();
+    }
+
+    public IntegerProperty roomNumberProperty() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber.set(roomNumber);
     }
 }
