@@ -109,7 +109,7 @@ public class DbHelper {
 
         try {
             dbConnect();
-            statement = connection.prepareStatement(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+            statement = connection.prepareStatement(sqlQuery, new String[] {"ID_RESERVATION"});
             statement.executeUpdate();
 
             ResultSet keys = statement.getGeneratedKeys();

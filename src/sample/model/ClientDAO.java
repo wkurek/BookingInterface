@@ -42,10 +42,8 @@ public class ClientDAO {
     public static void insertClient(Client client) throws SQLException, ClassNotFoundException {
         if(client == null) return;
 
-        String sqlQuery = String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES (%s, %s, %s, %s)", ClientContract.TABLE_NAME,
-                ClientContract.COLUMN_NAME_NAME, ClientContract.COLUMN_NAME_SURNAME, ClientContract.COLUMN_NAME_EMAIL,
-                ClientContract.COLUMN_NAME_TELEPHONE_NUMBER, client.getName(), client.getSurname(), client.getEmail(),
-                client.getTelephoneNumber());
+        String sqlQuery = String.format("INSERT INTO %s VALUES (0, '%s', '%s', %d, '%s')", ClientContract.TABLE_NAME,
+                 client.getName(), client.getSurname(), Integer.parseInt(client.getTelephoneNumber()), client.getEmail());
 
         DbHelper.executeUpdateQuery(sqlQuery);
     }
@@ -53,10 +51,10 @@ public class ClientDAO {
     public static void updateClient(int id, Client client) throws SQLException, ClassNotFoundException {
         if(client == null) return;
 
-        String sqlQuery = String.format("UPDATE %s SET %s = %s, %s = %s, %s = %s, %s = %s WHERE %s = %d", ClientContract.TABLE_NAME,
+        String sqlQuery = String.format("UPDATE %s SET %s = '%s', %s = '%s', %s = '%s', %s = %d WHERE %s = %d", ClientContract.TABLE_NAME,
                 ClientContract.COLUMN_NAME_NAME, client.getName(), ClientContract.COLUMN_NAME_SURNAME, client.getSurname(),
                 ClientContract.COLUMN_NAME_EMAIL, client.getEmail(), ClientContract.COLUMN_NAME_TELEPHONE_NUMBER,
-                client.getTelephoneNumber(), ClientContract.COLUMN_NAME_ID, id);
+                Integer.parseInt(client.getTelephoneNumber()), ClientContract.COLUMN_NAME_ID, id);
 
         DbHelper.executeUpdateQuery(sqlQuery);
     }

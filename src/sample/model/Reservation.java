@@ -16,7 +16,7 @@ public class Reservation {
         this(0, 0, 0, false, null, null);
     }
 
-    Reservation(int reservationId, int customerId, int roomNumber, boolean breakfast, Date dateIn, Date dateOut) {
+    public Reservation(int reservationId, int customerId, int roomNumber, boolean breakfast, Date dateIn, Date dateOut) {
         this.reservationId = new SimpleIntegerProperty(reservationId);
         this.customerId = new SimpleIntegerProperty(customerId);
         this.roomNumber = new SimpleIntegerProperty(roomNumber);

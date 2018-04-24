@@ -12,13 +12,12 @@ import java.text.SimpleDateFormat;
 
 public class ReservationDAO {
     private static class ReservationContract {
-        private static final String TABLE_NAME = "RESERVATIONS";
+        private static final String TABLE_NAME = "RESERVATION";
         private static final String COLUMN_NAME_DATE_IN = "DATE_IN";
         private static final String COLUMN_NAME_DATE_OUT = "DATE_OUT";
         private static final String COLUMN_NAME_BREAKFAST = "BREAKFAST";
         private static final String COLUMN_NAME_RESERVATION_ID = "ID_RESERVATION";
         private static final String COLUMN_NAME_CUSTOMER_ID = "ID_CUSTOMER";
-        private static final String COLUMN_NAME_ADMINISTRATOR_ID = "ID_ADMINISTRATOR";
     }
 
     private static class RoomsReservationsContract {
@@ -29,10 +28,10 @@ public class ReservationDAO {
 
     private static int dbInsertReservation(Reservation reservation) {
         int breakfast = reservation.isBreakfast()? 1 : 0;
-        String sqlQuery = String.format("INSERT INTO %s (%s, %s, %s, %s, %s) VALUES (%s, %s, %d, %d, %d)",
-                ReservationContract.TABLE_NAME, ReservationContract.COLUMN_NAME_DATE_IN, ReservationContract.COLUMN_NAME_DATE_OUT,
-                ReservationContract.COLUMN_NAME_BREAKFAST, ReservationContract.COLUMN_NAME_ADMINISTRATOR_ID,
-                ReservationContract.COLUMN_NAME_CUSTOMER_ID, reservation.getDateIn().toString(), reservation.getDateOut().toString(),
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+        String sqlQuery = String.format("INSERT INTO %s VALUES (0, '%s', '%s', %d, %d, %d)",
+                ReservationContract.TABLE_NAME,  dateFormat.format(reservation.getDateIn()), dateFormat.format(reservation.getDateOut()),
                 breakfast, 0, reservation.getCustomerId());
 
         return DbHelper.executeInsertQuery(sqlQuery);

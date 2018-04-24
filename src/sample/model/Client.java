@@ -16,7 +16,7 @@ public class Client {
         this(0, null, null, null, null);
     }
 
-    Client(int id, String name, String surname, String email, String telephoneNumber) {
+    public Client(int id, String name, String surname, String email, String telephoneNumber) {
         this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.surname = new SimpleStringProperty(surname);
