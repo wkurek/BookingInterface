@@ -50,7 +50,7 @@
                   <Insets left="4.0" right="24.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="newClientButton" layoutX="889.0" layoutY="159.0" mnemonicParsing="false" prefWidth="128.0" text="New Client">
+            <Button fx:id="newClientButton" layoutX="889.0" layoutY="159.0" mnemonicParsing="false" onAction="#onNewClient" prefWidth="128.0" text="New Client">
                <VBox.margin>
                   <Insets top="16.0" />
                </VBox.margin>

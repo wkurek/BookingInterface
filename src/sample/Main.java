@@ -2,29 +2,20 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import sample.model.Client;
-import sample.model.ClientDAO;
-import sample.model.Reservation;
-import sample.model.ReservationDAO;
-
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Main extends Application {
-    private Stage primaryStage;
+    private static Stage primaryStage;
     private BorderPane rootLayout;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Booking");
+    public void start(Stage stage) {
+        primaryStage = stage;
+        primaryStage.setTitle("Booking");
 
         initRootLayout();
         initClientView();
@@ -57,8 +48,11 @@ public class Main extends Application {
         }
     }
 
-
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
     }
 }

@@ -10,4 +10,14 @@ public class Validator {
         //TODO: implement this method
         return true;
     }
+
+    public static boolean validateName(String name) {
+        //TODO: implement this method
+        return true;
+    }
+
+    public static boolean validateSurname(String surname) {
+        //TODO: implement this method
+        return true;
+    }
 }

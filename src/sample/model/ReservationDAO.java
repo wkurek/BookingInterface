@@ -2,13 +2,12 @@ package sample.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.util.DateFormatter;
 import sample.util.DbHelper;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 
 public class ReservationDAO {
     private static class ReservationContract {
@@ -28,11 +27,10 @@ public class ReservationDAO {
 
     private static int dbInsertReservation(Reservation reservation) {
         int breakfast = reservation.isBreakfast()? 1 : 0;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
         String sqlQuery = String.format("INSERT INTO %s VALUES (0, '%s', '%s', %d, %d, %d)",
-                ReservationContract.TABLE_NAME,  dateFormat.format(reservation.getDateIn()), dateFormat.format(reservation.getDateOut()),
-                breakfast, 0, reservation.getCustomerId());
+                ReservationContract.TABLE_NAME,  DateFormatter.format(reservation.getDateIn()),
+                DateFormatter.format(reservation.getDateOut()), breakfast, 0, reservation.getCustomerId());
 
         return DbHelper.executeInsertQuery(sqlQuery);
     }

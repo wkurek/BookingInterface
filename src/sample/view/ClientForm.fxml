@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="248.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ClientFormController">
+   <children>
+      <HBox layoutX="14.0" layoutY="12.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefWidth="160.0" text="Name">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="clientFormName" layoutX="218.0" layoutY="12.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="57.0">
+         <children>
+            <Label layoutX="14.0" layoutY="57.0" prefWidth="160.0" text="Surname">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="clientFormSurname" layoutX="257.0" layoutY="61.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="100.0">
+         <children>
+            <Label layoutX="14.0" layoutY="100.0" prefWidth="160.0" text="Telephone number">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="clientFormTelephoneNumber" layoutX="250.0" layoutY="124.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="143.0">
+         <children>
+            <Label layoutX="14.0" layoutY="143.0" prefWidth="160.0" text="Email">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="12.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="clientFormEmail" layoutX="267.0" layoutY="206.0" />
+         </children>
+      </HBox>
+      <Button fx:id="addClientButton" layoutX="222.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClientAdded" prefWidth="64.0" text="Add" />
+      <Button fx:id="cancelClientButton" layoutX="309.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClientCanceled" text="Cancel" />
+   </children>
+</AnchorPane>
