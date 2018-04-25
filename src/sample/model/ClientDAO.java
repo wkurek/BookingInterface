@@ -43,18 +43,18 @@ public class ClientDAO {
         if(client == null) return;
 
         String sqlQuery = String.format("INSERT INTO %s VALUES (0, '%s', '%s', %d, '%s')", ClientContract.TABLE_NAME,
-                 client.getName(), client.getSurname(), Integer.parseInt(client.getTelephoneNumber()), client.getEmail());
+                 client.getName(), client.getSurname(), Long.parseLong(client.getTelephoneNumber()), client.getEmail());
 
         DbHelper.executeUpdateQuery(sqlQuery);
     }
 
-    public static void updateClient(int id, Client client) throws SQLException, ClassNotFoundException {
+    public static void updateClient(Client client) throws SQLException, ClassNotFoundException {
         if(client == null) return;
 
         String sqlQuery = String.format("UPDATE %s SET %s = '%s', %s = '%s', %s = '%s', %s = %d WHERE %s = %d", ClientContract.TABLE_NAME,
                 ClientContract.COLUMN_NAME_NAME, client.getName(), ClientContract.COLUMN_NAME_SURNAME, client.getSurname(),
                 ClientContract.COLUMN_NAME_EMAIL, client.getEmail(), ClientContract.COLUMN_NAME_TELEPHONE_NUMBER,
-                Integer.parseInt(client.getTelephoneNumber()), ClientContract.COLUMN_NAME_ID, id);
+                Long.parseLong(client.getTelephoneNumber()), ClientContract.COLUMN_NAME_ID, client.getId());
 
         DbHelper.executeUpdateQuery(sqlQuery);
     }
