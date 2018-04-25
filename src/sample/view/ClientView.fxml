@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="591.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ClientController">
+   <children>
+      <TableView fx:id="clientsTable" layoutX="14.0" layoutY="16.0" prefHeight="560.0" prefWidth="865.0">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="89.0" text="ID" />
+            <TableColumn fx:id="nameColumn" prefWidth="171.0" text="Name" />
+            <TableColumn fx:id="surnameColumn" prefWidth="167.0" text="Surname" />
+            <TableColumn fx:id="emailColumn" prefWidth="248.0" text="Email" />
+            <TableColumn fx:id="telephoneColumn" prefWidth="189.0" text="Telephone" />
+        </columns>
+      </TableView>
+      <VBox layoutX="897.0" layoutY="201.0">
+         <children>
+            <TextField fx:id="clientTelephoneInput" layoutX="889.0" layoutY="279.0" promptText="telephone number">
+               <HBox.margin>
+                  <Insets left="4.0" right="24.0" />
+               </HBox.margin>
+            </TextField>
+            <TextField fx:id="clientEmailInput" layoutX="889.0" layoutY="328.0" promptText="email">
+               <HBox.margin>
+                  <Insets right="24.0" />
+               </HBox.margin>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="updateClientButton" layoutX="889.0" layoutY="373.0" mnemonicParsing="false" prefWidth="128.0" text="Update Client">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="897.0" layoutY="52.0">
+         <children>
+            <Button fx:id="loadClientsButton" layoutX="889.0" layoutY="110.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Load Clients">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <HBox.margin>
+                  <Insets left="4.0" right="24.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="newClientButton" layoutX="889.0" layoutY="159.0" mnemonicParsing="false" prefWidth="128.0" text="New Client">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <HBox.margin>
+                  <Insets right="24.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="deleteClientButton" layoutX="895.0" layoutY="211.0" mnemonicParsing="false" onAction="#onDeleteClient" prefWidth="128.0" text="Delete Client">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
