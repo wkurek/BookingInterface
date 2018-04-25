@@ -6,10 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import sample.controller.ClientController;
+
 import java.io.IOException;
 
 public class Main extends Application {
-    private static Stage primaryStage;
+    private Stage primaryStage;
     private BorderPane rootLayout;
 
     @Override
@@ -19,6 +21,7 @@ public class Main extends Application {
 
         initRootLayout();
         initClientView();
+
     }
 
     private void initRootLayout() {
@@ -42,6 +45,9 @@ public class Main extends Application {
             loader.setLocation(Main.class.getResource("view/ClientView.fxml"));
             AnchorPane anchorPane = loader.load();
 
+            ClientController clientController = loader.getController();
+            clientController.setStage(primaryStage);
+
             rootLayout.setCenter(anchorPane);
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,9 +56,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public static Stage getPrimaryStage() {
-        return primaryStage;
     }
 }

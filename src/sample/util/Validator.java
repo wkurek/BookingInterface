@@ -2,22 +2,19 @@ package sample.util;
 
 public class Validator {
     public static boolean validateTelephoneNumber(String telephoneNumber) {
-        //TODO: implement this method
-        return true;
+        return !telephoneNumber.isEmpty() && telephoneNumber.matches("[0-9]+$") && telephoneNumber.length() <= 13
+                && telephoneNumber.length() >= 9;
     }
 
     public static boolean validateEmail(String email) {
-        //TODO: implement this method
-        return true;
+        return !email.isEmpty() && email.matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$") && email.length() < 20;
     }
 
     public static boolean validateName(String name) {
-        //TODO: implement this method
-        return true;
+        return !name.isEmpty() && name.matches("[a-zA-Z]+$") && name.length() < 20;
     }
 
     public static boolean validateSurname(String surname) {
-        //TODO: implement this method
-        return true;
+        return validateName(surname);
     }
 }

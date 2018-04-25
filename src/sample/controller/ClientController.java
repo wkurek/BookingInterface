@@ -4,10 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,6 +16,8 @@ import sample.util.Validator;
 import java.io.IOException;
 
 public class ClientController {
+    private Stage stage;
+
     @FXML
     private TableView clientsTable;
 
@@ -80,8 +79,11 @@ public class ClientController {
             ObservableList<Client> clients = ClientDAO.getClients();
             clientsTable.setItems(clients);
         } catch (Exception e) {
-            e.printStackTrace();
-            //TODO: show alert
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(stage);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error while executing select statement.");
+            alert.show();
         }
     }
 
@@ -95,8 +97,11 @@ public class ClientController {
                 ClientDAO.deleteClient(selectedClient.getId());
                 clientsTable.getItems().remove(selectedClientId);
             } catch (Exception e) {
-                e.printStackTrace();
-                //TODO: show alert
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(stage);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error while executing delete statement.");
+                alert.show();
             }
         } else {
             deleteClientButton.setDisable(true);
@@ -116,11 +121,18 @@ public class ClientController {
                 selectedClient.setEmail(email);
                 ClientDAO.updateClient(selectedClient);
             } catch (Exception e) {
-                e.printStackTrace();
-                //TODO: show alert
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(stage);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error while executing update statement.");
+                alert.show();
             }
         } else {
-            //TODO: display alert: "invalid data"
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(stage);
+            alert.setTitle("Invalid Fields");
+            alert.setHeaderText("Please correct invalid fields");
+            alert.show();
         }
     }
 
@@ -134,7 +146,7 @@ public class ClientController {
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Create Client");
             dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(Main.getPrimaryStage());
+            dialogStage.initOwner(stage);
 
             ClientFormController controller = loader.getController();
             controller.setStage(dialogStage);
@@ -142,8 +154,10 @@ public class ClientController {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             dialogStage.show();
-        } catch (IOException e) {
-            //TODO: show alert
-        }
+        } catch (IOException e) {}
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }

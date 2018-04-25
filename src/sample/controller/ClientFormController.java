@@ -1,6 +1,7 @@
 package sample.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.model.Client;
@@ -33,10 +34,20 @@ public class ClientFormController {
             try {
                 ClientDAO.insertClient(client);
             } catch (Exception e) {
-                //TODO: show alert
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(stage);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error while executing insert statement.");
+                alert.show();
             } finally {
                 onClientCanceled();
             }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(stage);
+            alert.setTitle("Invalid Fields");
+            alert.setHeaderText("Please correct invalid fields");
+            alert.show();
         }
     }
 
@@ -45,7 +56,7 @@ public class ClientFormController {
         if(stage != null) stage.close();
     }
 
-    public void setStage(Stage stage) {
+    void setStage(Stage stage) {
         this.stage = stage;
     }
 }
