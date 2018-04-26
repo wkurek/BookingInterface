@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.controller.ClientController;
+import sample.controller.ReservationController;
 
 import java.io.IOException;
 
@@ -40,13 +41,19 @@ public class Main extends Application {
     }
 
     private void initClientView() {
-        try {
+        try {/*
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/ClientView.fxml"));
             AnchorPane anchorPane = loader.load();
 
             ClientController clientController = loader.getController();
-            clientController.setStage(primaryStage);
+            clientController.setStage(primaryStage);*/
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/ReservationView.fxml"));
+            AnchorPane anchorPane = loader.load();
+
+            ReservationController controller = loader.getController();
+            controller.setStage(primaryStage);
 
             rootLayout.setCenter(anchorPane);
         } catch (IOException e) {
