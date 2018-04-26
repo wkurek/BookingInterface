@@ -21,7 +21,7 @@ public class Validator {
     }
 
     public static boolean validateDate(String date) {
-        if(date.isEmpty() || date.length() != 10 || !date.matches("^[0-9]{2}/[0-9]{2}/20[0-9]{2}$")) return false;
+        if(date.isEmpty() || date.length() != 10 || !date.matches("^20[0-9]{2}/[0-9]{2}/[0-9]{2}$")) return false;
 
         try {
             DateFormatter.parseDate(date);

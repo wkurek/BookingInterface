@@ -8,8 +8,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.controller.ClientController;
 import sample.controller.ReservationController;
+import sample.model.Reservation;
+import sample.model.ReservationDAO;
+import sample.util.DateFormatter;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.ParseException;
 
 public class Main extends Application {
     private Stage primaryStage;
@@ -54,6 +59,9 @@ public class Main extends Application {
 
             ReservationController controller = loader.getController();
             controller.setStage(primaryStage);
+
+
+
 
             rootLayout.setCenter(anchorPane);
         } catch (IOException e) {
