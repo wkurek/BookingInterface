@@ -2,12 +2,19 @@ package sample.controller;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sample.Main;
 import sample.model.Reservation;
 import sample.model.ReservationDAO;
+
+import java.io.IOException;
 import java.util.Date;
 
 public class ReservationController {
@@ -57,7 +64,23 @@ public class ReservationController {
 
     @FXML
     private void onNewReservation() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/ReservationForm.fxml"));
+            AnchorPane page = loader.load();
 
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Create Reservation");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(stage);
+
+            ReservationFormController controller = loader.getController();
+            controller.setStage(dialogStage);
+
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            dialogStage.show();
+        } catch (IOException e) {}
     }
 
     public void setStage(Stage stage) {

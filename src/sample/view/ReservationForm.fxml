@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="294.0" prefWidth="364.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ReservationFormController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0">
+         <children>
+            <HBox layoutX="47.0" layoutY="30.0">
+               <children>
+                  <Label layoutX="81.0" layoutY="48.0" prefWidth="128.0" text="Customer id">
+                     <HBox.margin>
+                        <Insets right="16.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="reservationFormCustomerId" layoutX="264.0" layoutY="43.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="47.0" layoutY="74.0">
+               <children>
+                  <Label layoutX="81.0" layoutY="102.0" prefWidth="128.0" text="Date in">
+                     <HBox.margin>
+                        <Insets right="16.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="reservationFormDateIn" layoutX="161.0" layoutY="97.0" promptText="dd/mm/yyyy" />
+               </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="47.0" layoutY="120.0">
+               <children>
+                  <Label layoutX="81.0" layoutY="151.0" prefWidth="128.0" text="Date out">
+                     <HBox.margin>
+                        <Insets right="16.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="reservationFormDateOut" layoutX="264.0" layoutY="146.0" promptText="dd/mm/yyyy" />
+               </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="47.0" layoutY="177.0">
+               <children>
+                  <Label layoutX="81.0" layoutY="251.0" prefWidth="128.0" text="Room numbers">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="16.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="reservationFormRoomNumbers" layoutX="254.0" layoutY="246.0" promptText="101;301;302">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </HBox>
+            <CheckBox fx:id="reservationFormBreakfastCheckbox" contentDisplay="CENTER" layoutX="72.0" layoutY="316.0" mnemonicParsing="false" text="Breakfast">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </CheckBox>
+         </children>
+      </VBox>
+      <Button fx:id="addReservationButton" layoutX="216.0" layoutY="247.0" mnemonicParsing="false" text="Add Reservation" />
+      <Button fx:id="cancelReservationButton" layoutX="116.0" layoutY="247.0" mnemonicParsing="false" text="Cancel" />
+   </children>
+</AnchorPane>
