@@ -18,6 +18,11 @@ public class RootController {
     private BorderPane rootLayout;
 
     @FXML
+    private void initialize() {
+        onShowClientsClicked();
+    }
+
+    @FXML
     private void onNewReservationClicked() {
         try {
             FXMLLoader loader = new FXMLLoader();

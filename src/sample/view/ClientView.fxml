@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ClientController">
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ClientController">
    <children>
-      <TableView fx:id="clientsTable" layoutX="14.0" layoutY="14.0" prefHeight="572.0" prefWidth="865.0">
+      <TableView fx:id="clientsTable" layoutX="14.0" layoutY="74.0" prefHeight="572.0" prefWidth="865.0">
         <columns>
             <TableColumn fx:id="idColumn" prefWidth="89.0" text="ID" />
             <TableColumn fx:id="nameColumn" prefWidth="171.0" text="Name" />
@@ -18,7 +19,7 @@
             <TableColumn fx:id="telephoneColumn" prefWidth="189.0" text="Telephone" />
         </columns>
       </TableView>
-      <VBox layoutX="897.0" layoutY="201.0">
+      <VBox layoutX="891.0" layoutY="263.0">
          <children>
             <TextField fx:id="clientTelephoneInput" layoutX="889.0" layoutY="279.0" promptText="telephone number">
                <HBox.margin>
@@ -40,7 +41,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox layoutX="897.0" layoutY="52.0">
+      <VBox layoutX="891.0" layoutY="110.0">
          <children>
             <Button fx:id="loadClientsButton" layoutX="889.0" layoutY="110.0" mnemonicParsing="false" onAction="#onLoadClients" prefHeight="31.0" prefWidth="128.0" text="Load Clients">
                <VBox.margin>
@@ -65,5 +66,13 @@
             </Button>
          </children>
       </VBox>
+      <Label layoutX="14.0" layoutY="14.0" text="Clients">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <padding>
+            <Insets left="16.0" />
+         </padding>
+      </Label>
    </children>
 </AnchorPane>

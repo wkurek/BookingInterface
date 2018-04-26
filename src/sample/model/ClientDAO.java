@@ -35,7 +35,7 @@ public class ClientDAO {
     }
 
     public static ObservableList<Client> getClients() throws SQLException, ClassNotFoundException {
-        String sqlQuery = "SELECT * FROM " + ClientContract.TABLE_NAME;
+        String sqlQuery = "SELECT * FROM " + ClientContract.TABLE_NAME + " ORDER BY " + ClientContract.COLUMN_NAME_ID + " DESC";
         return getClientList(DbHelper.executeQuery(sqlQuery));
     }
 

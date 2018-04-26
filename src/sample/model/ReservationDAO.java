@@ -51,7 +51,7 @@ public class ReservationDAO {
         String sqlQuery = "SELECT room.room_number, reservation.id_reservation, reservation.date_in, reservation.date_out, " +
                 "reservation.breakfast, reservation.id_customer FROM ((room INNER JOIN rooms_reservations ON " +
                 "room.room_number = rooms_reservations.room_number) INNER JOIN reservation ON " +
-                "rooms_reservations.id_reservation = reservation.id_reservation)";
+                "rooms_reservations.id_reservation = reservation.id_reservation) ORDER BY reservation.id_reservation DESC";
 
         return getReservationsList(DbHelper.executeQuery(sqlQuery));
     }

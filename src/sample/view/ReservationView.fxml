@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ReservationController">
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ReservationController">
    <children>
-      <TableView fx:id="reservationsTable" layoutX="14.0" layoutY="14.0" prefHeight="569.0" prefWidth="891.0">
+      <TableView fx:id="reservationsTable" layoutX="14.0" layoutY="77.0" prefHeight="569.0" prefWidth="891.0">
         <columns>
           <TableColumn fx:id="reservationIdColumn" prefWidth="75.0" text="reservation id" />
           <TableColumn fx:id="roomNumberColumn" prefWidth="75.0" text="room number" />
@@ -22,7 +23,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <VBox layoutX="918.0" layoutY="51.0">
+      <VBox layoutX="918.0" layoutY="121.0">
          <children>
             <Button fx:id="reservationLoadButton" layoutX="909.0" layoutY="49.0" mnemonicParsing="false" onAction="#onReservationsLoad" prefWidth="160.0" text="Load Reservations" />
             <Button fx:id="newReservationButton" layoutX="909.0" layoutY="99.0" mnemonicParsing="false" onAction="#onNewReservation" prefWidth="160.0" text="New Reservation">
@@ -32,5 +33,13 @@
             </Button>
          </children>
       </VBox>
+      <Label layoutX="14.0" layoutY="14.0" text="Reservations">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <padding>
+            <Insets left="16.0" />
+         </padding>
+      </Label>
    </children>
 </AnchorPane>
