@@ -157,7 +157,7 @@ public class ClientController {
         } catch (IOException e) {}
     }
 
-    public void setStage(Stage stage) {
+    void setStage(Stage stage) {
         this.stage = stage;
     }
 }

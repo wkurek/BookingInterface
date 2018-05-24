@@ -4,6 +4,9 @@ import javafx.beans.property.*;
 
 import java.util.Date;
 
+/**
+ * Class represents row in RESERVATIONS table in database.
+ */
 public class Reservation {
     private IntegerProperty reservationId;
     private IntegerProperty customerId;
@@ -25,19 +28,15 @@ public class Reservation {
         this.dateOut = new SimpleObjectProperty<>(dateOut);
     }
 
-    public int getReservationId() {
-        return reservationId.get();
-    }
-
     public IntegerProperty reservationIdProperty() {
         return reservationId;
     }
 
-    public void setReservationId(int reservationId) {
+    void setReservationId(int reservationId) {
         this.reservationId.set(reservationId);
     }
 
-    public int getCustomerId() {
+    int getCustomerId() {
         return customerId.get();
     }
 
@@ -45,11 +44,11 @@ public class Reservation {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    void setCustomerId(int customerId) {
         this.customerId.set(customerId);
     }
 
-    public boolean isBreakfast() {
+    boolean isBreakfast() {
         return breakfast.get();
     }
 
@@ -57,11 +56,11 @@ public class Reservation {
         return breakfast;
     }
 
-    public void setBreakfast(boolean breakfast) {
+    void setBreakfast(boolean breakfast) {
         this.breakfast.set(breakfast);
     }
 
-    public Date getDateIn() {
+    Date getDateIn() {
         return dateIn.get();
     }
 
@@ -69,11 +68,11 @@ public class Reservation {
         return dateIn;
     }
 
-    public void setDateIn(Date dateIn) {
+    void setDateIn(Date dateIn) {
         this.dateIn.set(dateIn);
     }
 
-    public Date getDateOut() {
+    Date getDateOut() {
         return dateOut.get();
     }
 
@@ -81,19 +80,15 @@ public class Reservation {
         return dateOut;
     }
 
-    public void setDateOut(Date dateOut) {
+    void setDateOut(Date dateOut) {
         this.dateOut.set(dateOut);
-    }
-
-    public int getRoomNumber() {
-        return roomNumber.get();
     }
 
     public IntegerProperty roomNumberProperty() {
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
+    void setRoomNumber(int roomNumber) {
         this.roomNumber.set(roomNumber);
     }
 }

@@ -24,7 +24,7 @@ public class Client {
         this.telephoneNumber = new SimpleStringProperty(telephoneNumber);
     }
 
-    public String getName() {
+    String getName() {
         return name.get();
     }
 
@@ -32,11 +32,11 @@ public class Client {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name.set(name);
     }
 
-    public String getSurname() {
+    String getSurname() {
         return surname.get();
     }
 
@@ -44,7 +44,7 @@ public class Client {
         return surname;
     }
 
-    public void setSurname(String surname) {
+    void setSurname(String surname) {
         this.surname.set(surname);
     }
 
@@ -68,7 +68,7 @@ public class Client {
         return id;
     }
 
-    public void setId(int id) {
+    void setId(int id) {
         this.id.set(id);
     }
 

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Booking Interface:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Booking_Interface_jar</output-path>
+    <root id="archive" name="Booking Interface.jar">
+      <element id="module-output" name="Booking Interface" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/jslsolucoes/ojdbc6/11.2.0.1.0/ojdbc6-11.2.0.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
