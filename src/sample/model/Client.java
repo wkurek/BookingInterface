@@ -5,6 +5,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Class represents row in CLIENTS table in database.
+ */
 public class Client {
     private StringProperty name;
     private StringProperty surname;

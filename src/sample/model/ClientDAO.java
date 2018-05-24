@@ -17,6 +17,12 @@ public class ClientDAO {
         private static final String COLUMN_NAME_EMAIL = "EMAIL";
     }
 
+    /**
+     * Method creates object for every row in CLIENTS table.
+     * @param resultSet result of SELECT query. Collection of objects which contain client values.
+     * @return Collection of objects representing every row in CLIENTS table
+     * @throws SQLException thrown when sql error appears
+     */
     private static ObservableList<Client> getClientList(ResultSet resultSet) throws SQLException {
         ObservableList<Client> clientList = FXCollections.observableArrayList();
 
@@ -34,11 +40,21 @@ public class ClientDAO {
         return clientList;
     }
 
+    /**
+     * Method fetches all clients data from database.
+     * @return Collection of objects representing particular rows in database
+     * @throws SQLException thrown when sql error appears
+     * @throws ClassNotFoundException thrown when JDBC Driver is not found
+     */
     public static ObservableList<Client> getClients() throws SQLException, ClassNotFoundException {
         String sqlQuery = "SELECT * FROM " + ClientContract.TABLE_NAME + " ORDER BY " + ClientContract.COLUMN_NAME_ID + " DESC";
         return getClientList(DbHelper.executeQuery(sqlQuery));
     }
 
+    /**
+     * Method executes INSERT query of provided client represented by Client class object.
+     * @param client client represented by Client class object
+     */
     public static void insertClient(Client client) throws SQLException, ClassNotFoundException {
         if(client == null) return;
 
@@ -48,6 +64,13 @@ public class ClientDAO {
         DbHelper.executeUpdateQuery(sqlQuery);
     }
 
+    /**
+     * Method executes UPDATE query on row in CLIENTS database which is represented by provided Client class object.
+     * @param client object which represents Client in database.
+     *               Row in database will be updated to contain all values that provided object possess.
+     * @throws SQLException thrown when sql error appears
+     * @throws ClassNotFoundException thrown when JDBC Driver is not found
+     */
     public static void updateClient(Client client) throws SQLException, ClassNotFoundException {
         if(client == null) return;
 
@@ -59,6 +82,12 @@ public class ClientDAO {
         DbHelper.executeUpdateQuery(sqlQuery);
     }
 
+    /**
+     * Method executes client DELETE query on database.
+     * @param id id of client which is to be deleted from database
+     * @throws SQLException thrown when sql error appears
+     * @throws ClassNotFoundException thrown when JDBC Driver is not found
+     */
     public static void deleteClient(int id) throws SQLException, ClassNotFoundException {
         String sqlQuery = String.format("DELETE FROM %s WHERE %s = %d", ClientContract.TABLE_NAME,
                 ClientContract.COLUMN_NAME_ID, id);
